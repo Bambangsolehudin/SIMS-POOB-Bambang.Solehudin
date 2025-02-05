@@ -75,8 +75,9 @@ export default function LoginForm() {
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <div className="flex w-full max-w-5xl bg-white rounded-2xl overflow-hidden">
-        <div className="w-full md:w-1/2 p-6 flex flex-col justify-center">
+      <div className="flex w-full bg-white rounded-2xl overflow-hidden">
+        <div className="w-2/12"></div>
+        <div className="w-full md:w-3/12 p-6 flex flex-col justify-center">
           <div className='flex justify-center space-x-2'>
             <img src="/login_icon.png" alt="" className='w-6 h-6 object-cover rounded-lg' />
             <h2 className="text-xl font-semibold text-center text-gray-700 mb-6">SIMS PPOB</h2>
@@ -123,7 +124,8 @@ export default function LoginForm() {
 
 
         </div>
-        <div className="hidden md:block md:w-2/3 h-screen bg-cover bg-center" style={{ backgroundImage: "url('/login_bg.png')" }}></div>
+        <div className="w-1/12"></div>
+        <div className="hidden md:block md:w-6/12 h-screen bg-cover bg-center" style={{ backgroundImage: "url('/login_bg.png')" }}></div>
       </div>
       <Dialog open={modalOpen} handler={() => setModalOpen(false)}>
         <DialogHeader>Notification</DialogHeader>

@@ -65,9 +65,14 @@ export default function RegisterForm() {
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <div className="flex w-full max-w-5xl bg-white rounded-2xl overflow-hidden">
-        <div className="w-full md:w-1/2 p-10 flex flex-col justify-center">
-          <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">Register</h2>
+      <div className="flex justify-between w-full bg-white rounded-2xl overflow-hidden">
+        <div className="w-2/12"></div>
+        <div className="w-full md:w-3/12 flex flex-col justify-center">
+          <div className='flex justify-center space-x-2'>
+            <img src="/login_icon.png" alt="" className='w-6 h-6 object-cover rounded-lg' />
+            <h2 className="text-xl font-semibold text-center text-gray-700 mb-6">SIMS PPOB</h2>
+          </div>
+          <h2 className="text-2xl font-bold text-center text-gray-700 mb-6">Lengkapi data untuk membuat akun</h2>
           <form onSubmit={formik.handleSubmit}>
             <div className="mb-4 relative">
               <AtSign className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -146,7 +151,8 @@ export default function RegisterForm() {
             Sudah ada akun? Login <Link className="text-red-600" to="/login">disini</Link>
           </h6>
         </div>
-        <div className="hidden md:block md:w-2/3 h-screen bg-cover bg-center" style={{ backgroundImage: "url('/login_bg.png')" }}></div>
+        <div className="w-1/12"></div>
+        <div className="hidden md:block md:w-6/12 h-screen bg-cover bg-center" style={{ backgroundImage: "url('/login_bg.png')" }}></div>
       </div>
 
       <Dialog open={modalOpen} handler={() => setModalOpen(false)}>
