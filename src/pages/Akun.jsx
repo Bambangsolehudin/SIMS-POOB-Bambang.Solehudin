@@ -15,7 +15,7 @@ import { Dialog, DialogHeader, DialogBody, DialogFooter, Button } from "@materia
 
 
 export default function Profile() {
-    const base_api = 'https://take-home-test-api.nutech-integrasi.com';
+    const base_api = import.meta.env.VITE_BASE_API;;
     
 
     const auth = useSelector((state) => state.auth.user);

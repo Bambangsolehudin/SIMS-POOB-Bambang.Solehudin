@@ -12,7 +12,7 @@ import { Dialog, DialogHeader, DialogBody, DialogFooter, Button } from "@materia
 
 const TopUp = () => {
   const auth = useSelector((state) => state.auth.user);
-  const base_api = 'https://take-home-test-api.nutech-integrasi.com'
+  const base_api = import.meta.env.VITE_BASE_API;
 
   // Modal
   const [modalOpen, setModalOpen] = useState(false);

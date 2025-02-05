@@ -11,7 +11,7 @@ import { Eye, EyeOff } from "lucide-react";
 const MainProfile = () => {
     const [balanceHidden, setBalanceHidden] = useState(true);
     const auth = useSelector((state) => state.auth.user);
-    const base_api = 'https://take-home-test-api.nutech-integrasi.com';
+    const base_api = import.meta.env.VITE_BASE_API;;
     const [profile, setProfile] = useState(null);
     const [balance, setBalance] = useState(null);
     
@@ -70,7 +70,7 @@ const MainProfile = () => {
         <div className="flex align-items-center justify-between">
             <div >
             <img
-                src="/user.png"
+                src={profile?.profile_image?.split('/').pop() === 'null' ? '/user.png' : profile?.profile_image}
                 alt="Profile"
                 className="w-12 h-12 rounded-full"
             />

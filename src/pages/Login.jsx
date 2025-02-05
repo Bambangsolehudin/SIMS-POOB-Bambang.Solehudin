@@ -41,7 +41,8 @@ export default function LoginForm() {
         console.log("hahaha");
         
         
-        const base_api = 'https://take-home-test-api.nutech-integrasi.com'
+        const base_api = import.meta.env.VITE_BASE_API;
+
         const response = await axios.post(`${base_api}/login`, py);
         
         

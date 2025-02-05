@@ -1,29 +1,6 @@
-// import { Link } from 'react-router-dom';
-// import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 // eslint-disable-next-line react/prop-types
 const Layout = ({ children }) => {
-  // Mengambil status dark mode dari localStorage
-  // const [isDarkMode, setIsDarkMode] = useState(() => {
-  //   return localStorage.getItem('theme') === 'light'; // Defaultnya dark mode jika ada di localStorage
-  // });
-
-  // // Fungsi untuk toggle dark mode
-  // const toggleDarkMode = () => {
-  //   setIsDarkMode(prev => !prev);
-    
-  // };
-
-  // Menyimpan status tema di localStorage dan menambahkan class 'dark' ke <html> 
-  // useEffect(() => {
-  //   if (isDarkMode) {
-  //     document.documentElement.classList.add('dark');
-  //     localStorage.setItem('theme', 'dark'); // Simpan di localStorage
-  //   } else {
-  //     document.documentElement.classList.remove('dark');
-  //     localStorage.setItem('theme', 'light'); // Simpan di localStorage
-  //   }
-  // }, [isDarkMode]);
   const location = useLocation();
 
 

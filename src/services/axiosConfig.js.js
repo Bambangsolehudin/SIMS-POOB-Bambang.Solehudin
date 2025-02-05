@@ -3,7 +3,7 @@ import { store } from '../redux/store'; // Import Redux Store
 import { logoutUser } from '../redux/actions/authActions'; // Import action logout dari Redux
 
 // Set base URL untuk semua permintaan Axios
-axios.defaults.baseURL = 'https://take-home-test-api.nutech-integrasi.com'; 
+axios.defaults.baseURL = import.meta.env.VITE_BASE_API;
 
 // Interceptor Request: Tambahkan token otomatis jika ada
 axios.interceptors.request.use(

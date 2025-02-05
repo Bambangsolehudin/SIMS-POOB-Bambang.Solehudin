@@ -13,7 +13,7 @@ import MainProfile from '../components/MainProfile'
 
 const Home = () => {
   const auth = useSelector((state) => state.auth.user);
-  const base_api = 'https://take-home-test-api.nutech-integrasi.com';
+  const base_api = import.meta.env.VITE_BASE_API;
   const [services, setServices] = useState(null);
   const [banner, setBanner] = useState(null);
 

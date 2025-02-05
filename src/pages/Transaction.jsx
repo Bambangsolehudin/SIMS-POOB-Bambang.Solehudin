@@ -17,7 +17,7 @@ import MainProfile from '../components/MainProfile';
 
 const Transaction = () => {
   const auth = useSelector((state) => state.auth.user);
-  const base_api = 'https://take-home-test-api.nutech-integrasi.com';
+  const base_api = import.meta.env.VITE_BASE_API;
   const [transactions, setTransactions] = useState([])
   const [offset, setOffset] = useState(0)
 

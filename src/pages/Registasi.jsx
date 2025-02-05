@@ -25,7 +25,7 @@ export default function RegisterForm() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
-  const api = 'https://take-home-test-api.nutech-integrasi.com'
+  const api = import.meta.env.VITE_BASE_API;
 
 
   

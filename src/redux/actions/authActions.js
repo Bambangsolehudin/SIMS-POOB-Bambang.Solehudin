@@ -8,7 +8,7 @@ import axios from 'axios';
 export const loginUser = (payload) => async (dispatch) => {
   dispatch(loginStart());
   try {
-    const base_api = 'https://take-home-test-api.nutech-integrasi.com'
+    const base_api = import.meta.env.VITE_BASE_API;
     const response = await axios.post(`${base_api}/login`, payload  );
     
     const token = response.data.token
