@@ -20,9 +20,9 @@ const Layout = ({ children }) => {
   ]
 
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-gray-800">
+    <div className="flex flex-col min-h-screen bg-white  dark:bg-gray-800 ">
       {/* Header */}
-      <header className="px-8 py-5 text-white shadow-lg shadow-b bg-white">
+      <header className="px-8 fixed top-0 left-0 w-full mb-20 py-5 z-50 text-white shadow-lg shadow-b bg-white isolation-isolate">
         <div className="flex justify-between items-center" >
           
           <Link to='/dashboard' className='flex items-center space-x-2'>
@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
       </header>
 
       {/* Main Content */}
-      <main className="flex-grow container mx-auto p-8">
+      <main className="flex-grow container mx-auto p-6 xl:p-8 lg:p-8 md:p-8 xl:mt-20 lg:mt-20 md:mt-20 mt-24">
         {children}
       </main>
 

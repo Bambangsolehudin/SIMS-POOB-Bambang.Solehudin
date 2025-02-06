@@ -157,29 +157,30 @@ export default function Profile() {
     const handleSave = () => {
         formik.handleSubmit();
     };
+    
   return (
     <Layout>
-        <div className="flex flex-col items-center min-h-screen xl:p-6 lg:p-6 md:p-6">
+        <div className="flex flex-col items-center min-h-screen xl:p-6 lg:p-6 md:p-6 z-50">
             <div className="bg-white p-8 rounded-lg shadow-lg xl:w-8/12 lg:w-8/12 md:w-8/12 sm:w-12/12  xl:max-w-2xl lg:max-w-2xl text-center">
-                <div className="relative w-24 h-24 mx-auto mb-4">
-                <img
-                    src={profileImage}
-                    alt="Profile"
-                    className="w-24 h-24 rounded-full object-cover border"
-                />
-                <label
-                    htmlFor="profileInput"
-                    className="absolute bottom-0 right-0 border border-gray-400 bg-white p-1 rounded-full shadow-md cursor-pointer"
-                >
-                    <Pencil size={16} color='black' className="text-gray-500" />
-                </label>
-                <input
-                    id="profileInput"
-                    type="file"
-                    accept="image/jpeg, image/png"
-                    className="hidden"
-                    onChange={handleImageChange}
-                />
+                <div className="relative z-10 w-24 h-24 mx-auto mb-4">
+                    <img
+                        src={profileImage}
+                        alt="Profile"
+                        className="w-24 h-24 rounded-full object-cover border"
+                    />
+                    <label
+                        htmlFor="profileInput"
+                        className="absolute bottom-0 right-0 border border-gray-400 bg-white p-1 rounded-full shadow-md cursor-pointer"
+                    >
+                        <Pencil size={16} color='black' className="text-gray-500" />
+                    </label>
+                    <input
+                        id="profileInput"
+                        type="file"
+                        accept="image/jpeg, image/png"
+                        className="hidden"
+                        onChange={handleImageChange}
+                    />
                 </div>
                 <h2 className="text-xl font-semibold mb-4">{formik.values.firstName} {formik.values.lastName}</h2>
 
