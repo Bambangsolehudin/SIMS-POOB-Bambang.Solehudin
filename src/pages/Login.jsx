@@ -2,29 +2,34 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { AtSign, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 import { useState } from "react";
 import { Dialog, DialogHeader, DialogBody, DialogFooter, Button } from "@material-tailwind/react";
-
 import { useDispatch } from 'react-redux';
 import { loginSuccess } from '../redux/reducers/authSlice';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
 import { jwtDecode } from "jwt-decode";
 
 
-const validationSchema = Yup.object({
-  email: Yup.string().email("Invalid email format").required("Email is required"),
-  password: Yup.string().required("Password is required"),
-});
-
 export default function LoginForm() {
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const base_api = import.meta.env.VITE_BASE_API;
 
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
+  //Formik
+  const validationSchema = Yup.object({
+    email: Yup.string().email("Invalid email format").required("Email is required"),
+    password: Yup.string()
+      .min(8, "Password must be at least 8 characters")
+      .matches(/[a-z]/, "Password must contain at least one lowercase letter")
+      .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+      .matches(/[0-9]/, "Password must contain at least one number")
+      .required("Password is required"),
+  });
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -37,15 +42,7 @@ export default function LoginForm() {
           email: values.email,
           password: values.password,
         }
-
-        console.log("hahaha");
-        
-        
-        const base_api = import.meta.env.VITE_BASE_API;
-
         const response = await axios.post(`${base_api}/login`, py);
-        
-        
         if (response) {
           const token = await response?.data?.data?.token
           const decodedUser = jwtDecode(token);
@@ -55,13 +52,10 @@ export default function LoginForm() {
             user: decodedUser,
             token: token,
           }));
-  
           navigate('/dashboard'); // Redirect jika login berhasil
         } else {
           setModalMessage(response.message); // Tampilkan pesan error jika gagal
         }
-
-
       } catch (error) {
         if (error.response && error.response.data) {
           setModalMessage(error.response.data.message || "Login Failed. Please try again.");
@@ -78,7 +72,7 @@ export default function LoginForm() {
     <div className="flex min-h-screen items-center justify-center">
       <div className="flex w-full bg-white rounded-2xl overflow-hidden">
         <div className="w-2/12"></div>
-        <div className="w-full md:w-3/12 p-6 flex flex-col justify-center">
+        <div className="w-full xl:w-3/12 lg:w-3/12 md:w-12/12 sm:w-12/12 p-6 flex flex-col justify-center">
           <div className='flex justify-center space-x-2'>
             <img src="/login_icon.png" alt="" className='w-6 h-6 object-cover rounded-lg' />
             <h2 className="text-xl font-semibold text-center text-gray-700 mb-6">SIMS PPOB</h2>
@@ -125,6 +119,7 @@ export default function LoginForm() {
 
 
         </div>
+        <div className="w-1/12"></div>
         <div className="w-1/12"></div>
         <div className="hidden md:block md:w-6/12 h-screen bg-cover bg-center" style={{ backgroundImage: "url('/login_bg.png')" }}></div>
       </div>

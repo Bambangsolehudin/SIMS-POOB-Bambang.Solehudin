@@ -9,6 +9,7 @@ import Akun from './pages/Akun';
 import Dashboard from './pages/Dashboard';
 
 import './index.css';
+import './App.css'
 
 
 const App = () => {
@@ -16,11 +17,6 @@ const App = () => {
   const auth = useSelector((state) => state.auth);
   // const isAuth = auth?.user ? true : false;
 
-  console.log('haha', auth);
-  
-
-
-  
   return (
     <Routes>
       {/* Test */}

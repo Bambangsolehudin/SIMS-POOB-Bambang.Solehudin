@@ -6,30 +6,31 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Dialog, DialogHeader, DialogBody, DialogFooter, Button } from "@material-tailwind/react";
 
-const validationSchema = Yup.object({
-  email: Yup.string().email("Invalid email format").required("Email is required"),
-  firstName: Yup.string().required("First name is required"),
-  lastName: Yup.string().required("Last name is required"),
-  password: Yup.string()
-    .min(8, "Password must be at least 8 characters")
-    .matches(/[a-z]/, "Password must contain at least one lowercase letter")
-    .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
-    .matches(/[0-9]/, "Password must contain at least one number")
-    .required("Password is required"),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords must match")
-    .required("Confirm password is required"),
-});
+
 
 export default function RegisterForm() {
+  const api = import.meta.env.VITE_BASE_API;
+
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
-  const api = import.meta.env.VITE_BASE_API;
 
 
-  
-
+  //Formik
+  const validationSchema = Yup.object({
+    email: Yup.string().email("Invalid email format").required("Email is required"),
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
+    password: Yup.string()
+      .min(8, "Password must be at least 8 characters")
+      .matches(/[a-z]/, "Password must contain at least one lowercase letter")
+      .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+      .matches(/[0-9]/, "Password must contain at least one number")
+      .required("Password is required"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .required("Confirm password is required"),
+  });
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -67,7 +68,7 @@ export default function RegisterForm() {
     <div className="flex min-h-screen items-center justify-center">
       <div className="flex justify-between w-full bg-white rounded-2xl overflow-hidden">
         <div className="w-2/12"></div>
-        <div className="w-full md:w-3/12 flex flex-col justify-center">
+        <div className="w-full xl:w-3/12 lg:w-3/12 md:w-12/12 sm:w-12/12 p-6 flex flex-col justify-center">
           <div className='flex justify-center space-x-2'>
             <img src="/login_icon.png" alt="" className='w-6 h-6 object-cover rounded-lg' />
             <h2 className="text-xl font-semibold text-center text-gray-700 mb-6">SIMS PPOB</h2>

@@ -10,9 +10,6 @@ moment.locale('id');
 
 import MainProfile from '../components/MainProfile';
 
-
-
-
 //material tailwind
 
 const Transaction = () => {
@@ -20,9 +17,6 @@ const Transaction = () => {
   const base_api = import.meta.env.VITE_BASE_API;
   const [transactions, setTransactions] = useState([])
   const [offset, setOffset] = useState(0)
-
-
-
 
   const fetchTransaction = async () => {
     try {
@@ -44,13 +38,11 @@ const Transaction = () => {
       console.log(err.response?.data?.message || "Gagal mengambil profil");
     }
   }
-
   const getDate = (val) => {
     const tanggal = moment(val);
     const hasil = tanggal.format('DD MMMM YYYY HH:mm') + ' WIB';
     return hasil;
   }
-
 
   useEffect(() => {
     fetchTransaction();

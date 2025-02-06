@@ -5,26 +5,20 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { Dialog, DialogHeader, DialogBody, DialogFooter, Button } from "@material-tailwind/react";
 
-
-
-
 //material tailwind
 
 const TopUp = () => {
   const auth = useSelector((state) => state.auth.user);
   const base_api = import.meta.env.VITE_BASE_API;
+  const presetAmounts = [10000, 20000, 50000, 100000, 250000, 500000];
+
 
   // Modal
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
-
   const [amount, setAmount] = useState("");
   const [isValid, setIsValid] = useState(false);
-
-  
-  const presetAmounts = [10000, 20000, 50000, 100000, 250000, 500000];
-
   const [refreshKey, setRefreshKey] = useState(0);
 
   const handleInputChange = (value) => {
@@ -69,15 +63,15 @@ const TopUp = () => {
   return (
     <Layout>
       <div className="min-h-screen flex justify-center bg-white p-6">
-      <div className='w-10/12'>
+      <div className='sm:w-12/12 xl:w-10/12 md: w-10/12 lg:w-10/12'>
 
         <MainProfile key={refreshKey} />
         <div className='my-14'>
           <span className="text-xl font-semibold mb-4">Silahkan masukan </span> <br />
           <span className="text-3xl font-semibold">Nominal Top Up</span>
         </div>
-        <div className="flex align-items-center justify-between mt-6">
-            <div className='w-2/3'>
+        <div className="flex flex-col xl:flex-row lg:flex-row align-items-center justify-between mt-6">
+            <div className='xl:w-6/12 lg:w-12/12 md:12/12 sm:w-full md:w-full'>
               <input
                 type="text"
                 value={amount.toLocaleString("id-ID")}
@@ -93,8 +87,7 @@ const TopUp = () => {
                 Top Up
               </button>
             </div>
-            
-            <div className="className='w-1/3' grid grid-cols-3 gap-2 mb-4">
+            <div className="xl:w-5/12 lg:w-12/12 md:w-12/12 sm:w-full md:w-full xl:w-1/3 grid grid-cols-3 gap-2 mb-4">
               {presetAmounts.map((amt) => (
                 <button
                   key={amt}

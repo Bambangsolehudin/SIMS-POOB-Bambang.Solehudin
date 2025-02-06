@@ -7,17 +7,11 @@ import axios from 'axios'
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-
-
 import Layout from '../components/Layout';
 import { Dialog, DialogHeader, DialogBody, DialogFooter, Button } from "@material-tailwind/react";
 
-
-
 export default function Profile() {
     const base_api = import.meta.env.VITE_BASE_API;;
-    
-
     const auth = useSelector((state) => state.auth.user);
     const token = auth?.token
     const dispatch = useDispatch();
@@ -25,7 +19,6 @@ export default function Profile() {
 
     const [profileImage, setProfileImage] = useState(''); // Gambar default
     const [profile, setProfile] = useState('');
-
     const [isEdit, setIsEdit] = useState(false)
     // Modal
     const [modalOpen, setModalOpen] = useState(false);
@@ -35,7 +28,7 @@ export default function Profile() {
     const handleLogout = () => {
         dispatch(logout());
         navigate("/"); 
-      };
+    };
     const fetchProfile = async () => {
         try {
         const token = auth?.token
@@ -159,7 +152,7 @@ export default function Profile() {
   return (
     <Layout>
         <div className="flex flex-col items-center min-h-screen p-6">
-        <div className="bg-white p-8 rounded-lg shadow-lg w-8/12 max-w-2xl text-center">
+        <div className="bg-white p-8 rounded-lg shadow-lg xl:w-8/12 lg:w-10/12 md:w-10/12 sm:w-12/12  xl:max-w-2xl lg:max-w-2xl text-center">
             <div className="relative w-24 h-24 mx-auto mb-4">
             <img
                 src={profileImage}

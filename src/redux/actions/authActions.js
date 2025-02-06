@@ -13,11 +13,6 @@ export const loginUser = (payload) => async (dispatch) => {
     
     const token = response.data.token
     const decodedUser = jwtDecode(token);
-    
-    console.log('ini response', response);
-    console.log('ini response', token);
-    console.log('ini response', decodedUser);
-
 
 
     dispatch(loginSuccess({

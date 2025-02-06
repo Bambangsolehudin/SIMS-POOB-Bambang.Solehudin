@@ -12,25 +12,19 @@ import { Dialog, DialogHeader, DialogBody, DialogFooter, Button } from "@materia
 const TopUp = () => {
   const auth = useSelector((state) => state.auth.user);
   const base_api = import.meta.env.VITE_BASE_API;
-
-  // ambil nama tipe
   const [searchParams] = useSearchParams();
+  
+  //params
+  const { id } = useParams();
   const name = searchParams.get('name');
   const tarif = searchParams.get('tarif');
 
 
-
   const [amount, setAmount] = useState(tarif);
-  // const [isValid, setIsValid] = useState(false);
-  // Modal
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
-
   const [refreshKey, setRefreshKey] = useState(0);
 
-
-
-  const { id } = useParams();
 
   
   // const presetAmounts = [10000, 20000, 50000, 100000, 250000, 500000];
