@@ -104,6 +104,21 @@ export default function Profile() {
 
     const handleImageChange = async (event) => {
         const file = event.target.files[0];
+
+        const validTypes = ["image/jpeg", "image/png"];
+        const maxSize = 100 * 1024; // 100 KB
+
+        // Validasi tipe file
+        if (!validTypes.includes(file.type)) {
+        alert("Only JPEG and PNG images are allowed.");
+        return;
+        }
+
+        // Validasi ukuran file
+        if (file.size > maxSize) {
+        alert("File size must be under 100 KB.");
+        return;
+        }
     
         if (!file) {
             setModalMessage("No file selected.");
@@ -114,7 +129,7 @@ export default function Profile() {
         console.log(file);
     
         const formData = new FormData();
-        formData.append("profile_image", file);
+        formData.append("file", file);
 
         try {
             const response = await axios.put(`${base_api}/profile/image`, formData, {
@@ -123,14 +138,7 @@ export default function Profile() {
                     "Content-Type": "multipart/form-data",
                 },
             });
-    
-            if (response?.data?.imageUrl) {
-                setProfileImage(response.data.imageUrl); 
-                setModalMessage(response?.data?.message ?? 'Update Berhasil');
-            } else {
-                setModalMessage("Update failed, no imageUrl in response.");
-            }
-    
+            setModalMessage(response?.data?.message ?? 'Update Berhasil');
             // Fetch profile after update
             fetchProfile();
     
@@ -168,7 +176,7 @@ export default function Profile() {
             <input
                 id="profileInput"
                 type="file"
-                accept="image/*"
+                accept="image/jpeg, image/png"
                 className="hidden"
                 onChange={handleImageChange}
             />
