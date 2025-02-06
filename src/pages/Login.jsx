@@ -120,7 +120,6 @@ export default function LoginForm() {
 
         </div>
         <div className="w-1/12"></div>
-        <div className="w-1/12"></div>
         <div className="hidden md:block md:w-6/12 h-screen bg-cover bg-center" style={{ backgroundImage: "url('/login_bg.png')" }}></div>
       </div>
       <Dialog open={modalOpen} handler={() => setModalOpen(false)}>
