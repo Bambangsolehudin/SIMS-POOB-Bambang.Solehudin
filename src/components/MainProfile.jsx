@@ -63,7 +63,7 @@ const MainProfile = () => {
 
 
     return (
-        <div className="flex flex-col xl:flex-row lg:flex-row xl:justify-between lg:justify-between ">
+        <div className="flex gap-4 flex-col xl:flex-row lg:flex-row xl:justify-between lg:justify-between ">
             <div className='sm:w-full md:w-full' >
                 <img
                     src={profile?.profile_image?.split('/').pop() === 'null' ? '/user.png' : profile?.profile_image}
@@ -76,8 +76,7 @@ const MainProfile = () => {
                 </div>
             </div>
 
-            {/* Balance Card */}
-            <div className=" bg-red-500 xl:w-1/2 sm:w-full md:w-full text-white p-6 rounded-xl flex flex-col items-start">
+            <div className="bg-red-500 xl:w-1/2 sm:w-full md:w-full text-white p-6 rounded-xl flex flex-col items-start">
                 <p>Saldo anda</p>
                 <p className="text-2xl font-bold">
                     Rp {balanceHidden ? "••••••••" : ubahKeRupiah(balance?.balance)}

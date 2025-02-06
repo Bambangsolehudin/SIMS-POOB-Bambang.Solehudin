@@ -62,15 +62,15 @@ const TopUp = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen flex justify-center bg-white p-6">
-      <div className='sm:w-12/12 xl:w-10/12 md: w-10/12 lg:w-10/12'>
+      <div className="min-h-screen flex justify-center bg-white xl:p-6 lg:p-6 md:p-6">
+      <div className='xl:w-10/12 lg:w-10/12 md:w-12/12 sm:w-12/12'>
 
         <MainProfile key={refreshKey} />
         <div className='my-14'>
           <span className="text-xl font-semibold mb-4">Silahkan masukan </span> <br />
           <span className="text-3xl font-semibold">Nominal Top Up</span>
         </div>
-        <div className="flex flex-col xl:flex-row lg:flex-row align-items-center justify-between mt-6">
+        <div className="flex flex-col gap-6 xl:flex-row lg:flex-row align-items-center justify-between mt-6">
             <div className='xl:w-6/12 lg:w-12/12 md:12/12 sm:w-full md:w-full'>
               <input
                 type="text"

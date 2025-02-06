@@ -25,9 +25,9 @@ const Layout = ({ children }) => {
       <header className="px-8 py-5 text-white shadow-lg shadow-b bg-white">
         <div className="flex justify-between items-center" >
           
-          <Link to='/dashboard' className='flex align-items-center space-x-2'>
-            <img className='w-6 h-6 object-cover rounded-lg ' src="/login_icon.png" alt="" />
-            <h6 className="text-lg font-semibold  text-gray-800">
+          <Link to='/dashboard' className='flex items-center space-x-2'>
+            <img className='h-8 xl:w-6 xl:h-6 lg:w-6 lg:h-6 object-cover rounded-lg ' src="/login_icon.png" alt="" />
+            <h6 className="text-lg d-non font-semibold invisible xl:visible lg:visible md:visible  text-gray-800">
               SIMS PPOB
             </h6>
           </Link>

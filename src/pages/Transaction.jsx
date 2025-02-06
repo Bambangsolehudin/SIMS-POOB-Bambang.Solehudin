@@ -54,8 +54,8 @@ const Transaction = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen flex justify-center bg-white p-6">
-      <div className='w-10/12'>
+      <div className="min-h-screen flex justify-center bg-white xl:p-6 lg:p-6 md:p-6">
+      <div className='xl:w-10/12 lg:w-10/12 md:w-12/12 sm:w-12/12'>
 
         <MainProfile />
       

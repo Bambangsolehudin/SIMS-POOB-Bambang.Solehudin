@@ -67,7 +67,7 @@ export default function RegisterForm() {
   return (
     <div className="flex min-h-screen items-center justify-center">
       <div className="flex justify-between w-full bg-white rounded-2xl overflow-hidden">
-        <div className="w-2/12"></div>
+        <div className="xl:w-2/12 lg:w-2/12"></div>
         <div className="w-full xl:w-3/12 lg:w-3/12 md:w-12/12 sm:w-12/12 p-6 flex flex-col justify-center">
           <div className='flex justify-center space-x-2'>
             <img src="/login_icon.png" alt="" className='w-6 h-6 object-cover rounded-lg' />
@@ -152,7 +152,7 @@ export default function RegisterForm() {
             Sudah ada akun? Login <Link className="text-red-600" to="/login">disini</Link>
           </h6>
         </div>
-        <div className="w-1/12"></div>
+        <div className="xl:w-2/12 lg:w-2/12"></div>
         <div className="hidden md:block md:w-6/12 h-screen bg-cover bg-center" style={{ backgroundImage: "url('/login_bg.png')" }}></div>
       </div>
 

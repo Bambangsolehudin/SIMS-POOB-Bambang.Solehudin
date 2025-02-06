@@ -159,87 +159,87 @@ export default function Profile() {
     };
   return (
     <Layout>
-        <div className="flex flex-col items-center min-h-screen p-6">
-        <div className="bg-white p-8 rounded-lg shadow-lg xl:w-8/12 lg:w-10/12 md:w-10/12 sm:w-12/12  xl:max-w-2xl lg:max-w-2xl text-center">
-            <div className="relative w-24 h-24 mx-auto mb-4">
-            <img
-                src={profileImage}
-                alt="Profile"
-                className="w-24 h-24 rounded-full object-cover border"
-            />
-            <label
-                htmlFor="profileInput"
-                className="absolute bottom-0 right-0 border border-gray-400 bg-white p-1 rounded-full shadow-md cursor-pointer"
-            >
-                <Pencil size={16} color='black' className="text-gray-500" />
-            </label>
-            <input
-                id="profileInput"
-                type="file"
-                accept="image/jpeg, image/png"
-                className="hidden"
-                onChange={handleImageChange}
-            />
-            </div>
-            <h2 className="text-xl font-semibold mb-4">{formik.values.firstName} {formik.values.lastName}</h2>
+        <div className="flex flex-col items-center min-h-screen xl:p-6 lg:p-6 md:p-6">
+            <div className="bg-white p-8 rounded-lg shadow-lg xl:w-8/12 lg:w-8/12 md:w-8/12 sm:w-12/12  xl:max-w-2xl lg:max-w-2xl text-center">
+                <div className="relative w-24 h-24 mx-auto mb-4">
+                <img
+                    src={profileImage}
+                    alt="Profile"
+                    className="w-24 h-24 rounded-full object-cover border"
+                />
+                <label
+                    htmlFor="profileInput"
+                    className="absolute bottom-0 right-0 border border-gray-400 bg-white p-1 rounded-full shadow-md cursor-pointer"
+                >
+                    <Pencil size={16} color='black' className="text-gray-500" />
+                </label>
+                <input
+                    id="profileInput"
+                    type="file"
+                    accept="image/jpeg, image/png"
+                    className="hidden"
+                    onChange={handleImageChange}
+                />
+                </div>
+                <h2 className="text-xl font-semibold mb-4">{formik.values.firstName} {formik.values.lastName}</h2>
 
-            <div className="text-left">
-                <label className="block text-gray-600 text-sm">Email</label>
-                <div className="flex items-center border rounded-lg px-4 py-2 bg-gray-100 mb-4">
-                    <span className="mr-2">@</span>
-                    <input
-                    type="text"
-                    disabled 
-                    {...formik.getFieldProps('email')}
-                    className="bg-transparent w-full outline-none"
-                    />
-                </div>
-            
-                <label className="block text-gray-600 text-sm">Nama Depan</label>
-                <div className={`relative flex items-center border rounded-md p-2 my-4 ${!isEdit ? 'bg-gray-100' : ''}`}>
-                    <User className="text-gray-500 mr-2" size={20} />
-                    <input disabled={!isEdit} {...formik.getFieldProps('firstName')} type="text" className={`${!isEdit?'bg-transparent':''} w-full outline-none`}  />
-                </div>
-                {formik.touched.firstName && formik.errors.firstName ? <div className="text-red-500 text-sm">{formik.errors.firstName}</div> : null}
-                
-                <label className="block text-gray-600 text-sm">Nama Belakang</label>
-                <div className={`relative flex items-center border rounded-md p-2 my-4 ${!isEdit ? 'bg-gray-100' : ''}`}>
-                    <User className="text-gray-500 mr-2" size={20} />
-                    <input disabled={!isEdit} {...formik.getFieldProps('lastName')} type="text" className={`${!isEdit?'bg-transparent':''} w-full outline-none`}  />
-                </div>
-                {formik.touched.lastName && formik.errors.lastName ? <div className="text-red-500 text-sm">{formik.errors.lastName}</div> : null}
-            
-            </div>
-            
-            {
-                !isEdit && (
-                    <div>
-                        <button 
-                            onClick={(e) => {e.preventDefault; setIsEdit(true)}}
-                            className="w-full py-2 rounded-lg border text-red-500 hover:bg-gray-100 mb-2"
-                        >
-                            Edit Profile
-                        </button>
-                        <button onClick={handleLogout} className="w-full py-2 rounded-lg bg-red-500 text-white hover:bg-red-600">
-                            Logout
-                        </button>
+                <div className="text-left">
+                    <label className="block text-gray-600 text-sm">Email</label>
+                    <div className="flex items-center border rounded-lg px-4 py-2 bg-gray-100 mb-4">
+                        <span className="mr-2">@</span>
+                        <input
+                        type="text"
+                        disabled 
+                        {...formik.getFieldProps('email')}
+                        className="bg-transparent w-full outline-none"
+                        />
                     </div>
-                )
-            }
-            {
-                isEdit && (
-                    <button type="button" onClick={handleSave} disabled={!formik.isValid} className={`w-full py-2 rounded-lg text-white mt-4 ${formik.isValid ? 'bg-red-500 hover:bg-red-600' : 'bg-gray-400 cursor-not-allowed'}`}>Simpan</button>
-                )
-            }
-            
-        </div>
-        <Dialog open={modalOpen} handler={() => setModalOpen(false)}>
-            <DialogHeader>Notification</DialogHeader>
-            <DialogBody>{modalMessage}</DialogBody>
-            <DialogFooter>
-            <Button color="red" onClick={() => setModalOpen(false)}>Close</Button>
-            </DialogFooter>
-        </Dialog>
+                
+                    <label className="block text-gray-600 text-sm">Nama Depan</label>
+                    <div className={`relative flex items-center border rounded-md p-2 my-4 ${!isEdit ? 'bg-gray-100' : ''}`}>
+                        <User className="text-gray-500 mr-2" size={20} />
+                        <input disabled={!isEdit} {...formik.getFieldProps('firstName')} type="text" className={`${!isEdit?'bg-transparent':''} w-full outline-none`}  />
+                    </div>
+                    {formik.touched.firstName && formik.errors.firstName ? <div className="text-red-500 text-sm">{formik.errors.firstName}</div> : null}
+                    
+                    <label className="block text-gray-600 text-sm">Nama Belakang</label>
+                    <div className={`relative flex items-center border rounded-md p-2 my-4 ${!isEdit ? 'bg-gray-100' : ''}`}>
+                        <User className="text-gray-500 mr-2" size={20} />
+                        <input disabled={!isEdit} {...formik.getFieldProps('lastName')} type="text" className={`${!isEdit?'bg-transparent':''} w-full outline-none`}  />
+                    </div>
+                    {formik.touched.lastName && formik.errors.lastName ? <div className="text-red-500 text-sm">{formik.errors.lastName}</div> : null}
+                
+                </div>
+                
+                {
+                    !isEdit && (
+                        <div>
+                            <button 
+                                onClick={(e) => {e.preventDefault; setIsEdit(true)}}
+                                className="w-full py-2 rounded-lg border text-red-500 hover:bg-gray-100 mb-2"
+                            >
+                                Edit Profile
+                            </button>
+                            <button onClick={handleLogout} className="w-full py-2 rounded-lg bg-red-500 text-white hover:bg-red-600">
+                                Logout
+                            </button>
+                        </div>
+                    )
+                }
+                {
+                    isEdit && (
+                        <button type="button" onClick={handleSave} disabled={!formik.isValid} className={`w-full py-2 rounded-lg text-white mt-4 ${formik.isValid ? 'bg-red-500 hover:bg-red-600' : 'bg-gray-400 cursor-not-allowed'}`}>Simpan</button>
+                    )
+                }
+                
+            </div>
+            <Dialog open={modalOpen} handler={() => setModalOpen(false)}>
+                <DialogHeader>Notification</DialogHeader>
+                <DialogBody>{modalMessage}</DialogBody>
+                <DialogFooter>
+                <Button color="red" onClick={() => setModalOpen(false)}>Close</Button>
+                </DialogFooter>
+            </Dialog>
         </div>
     </Layout>
   );

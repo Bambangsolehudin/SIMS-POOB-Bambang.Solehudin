@@ -67,12 +67,12 @@ const Home = () => {
 
   return (
     <Layout>
-    <div className="min-h-screen bg-white p-6">
+    <div className="min-h-screen bg-white xl:p-6 lg:p-6">
 
       <MainProfile />
 
       {/* Services */}
-      <div className="grid grid-cols-4 grid-cols-2 md:grid-cols-4 xl:grid-cols-12 lg:grid-cols-12  gap-2 mt-6">
+      <div className="grid grid-cols-2 grid-cols-2 md:grid-cols-4 xl:grid-cols-12 lg:grid-cols-12  gap-2 mt-6">
         {services && services.map((service, index) => (
           <Link to={`/TopUp/${service.service_code}?name=${service?.service_name}&tarif=${service?.service_tariff}`} key={index} className="flex flex-col items-center bg-white p-4 rounded-lg">
             <img src={service.service_icon} alt="" />
