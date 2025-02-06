@@ -46,6 +46,10 @@ const Transaction = () => {
 
   useEffect(() => {
     fetchTransaction();
+  }, [offset])
+
+  useEffect(() => {
+    fetchTransaction();
   }, [])
 
   return (
@@ -68,13 +72,23 @@ const Transaction = () => {
                   </div>
               ))}
               <div className="text-center mt-4">
-                  <button onClick={
-                    (e) => {
-                      e.preventDefault();
-                      setOffset(prevOffset => prevOffset + 1);
-                      fetchTransaction();
-                    }
-                  } className="text-red-500">Show more</button>
+                {
+                  transactions?.length > 0 && (
+                    <button onClick={
+                      (e) => {
+                        e.preventDefault();
+                        setOffset(prev => {
+                          console.log("Previous offset:", prev);
+                          return prev + 1;
+                        });
+                      }
+                    } className="text-red-500">Show more</button>
+                  )
+                }
+                {
+                  transactions?.length < 1 && <p className='text-xl mt-20 text-gray-500'>Tidak ada data</p>
+                }
+                  
               </div>
             </div>
         </div>
