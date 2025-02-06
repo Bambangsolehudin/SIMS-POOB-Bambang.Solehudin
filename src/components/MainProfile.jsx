@@ -81,12 +81,15 @@ const MainProfile = () => {
                 <p className="text-2xl font-bold">
                     Rp {balanceHidden ? "••••••••" : ubahKeRupiah(balance?.balance)}
                 </p>
-                <button
-                onClick={() => setBalanceHidden(!balanceHidden)}
-                className="mt-2 text-sm underline"
-                >
-                {balanceHidden ? <EyeOff size={20} /> : <Eye size={20} />}
-                </button>
+                <div className="flex items-center gap-2 mt-2">
+                    <p className="text-sm text-white">Lihat Saldo</p>
+                    <button
+                    onClick={() => setBalanceHidden(!balanceHidden)}
+                    className=" text-sm underline"
+                    >
+                    {balanceHidden ? <EyeOff size={20} /> : <Eye size={20} />}
+                    </button>
+                </div>
             </div>
         </div>
     );
